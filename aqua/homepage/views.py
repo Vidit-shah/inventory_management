@@ -135,20 +135,20 @@ def add_productCheckout(request):
     form = InvoiceForm(request.POST or None)
     if form.is_valid():
         instance = form.save(commit=False)
-        # a = instance['line_two_unit_price']
-        print("_____________________________")
-        print("_____________________________")
-        # print(a)
-        print("_____________________________")
-        print("_____________________________")
+		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TESTING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
+
+        # Does the Calculations for the final product
         instance.line_two_total_price = instance.line_two_unit_price - ((instance.line_two_unit_price)*instance.line_two_discount/100)
         instance.save()
         form.save()
+		#~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TESTING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# 
+
         return redirect('/productCheckout')
     context = {
         'form': form
         }
         
+     #   add_prodCheck is the new html page with simplified code lines
     return render(request,'checkout/add_prodCheck.html', context)
 
 def update_productInvoice(request, pk):
