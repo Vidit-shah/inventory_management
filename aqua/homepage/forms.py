@@ -12,6 +12,10 @@ class InventoryProductsCreateForm(forms.ModelForm):
         if not product_name :
             raise forms.ValidationError('This field is Required')
         return product_name   
+    
+    def do_calc(self):
+        pass
+
 
 class InventoryProductsSearchForm(forms.ModelForm):
     class Meta:

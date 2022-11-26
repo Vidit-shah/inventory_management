@@ -1,268 +1,251 @@
-{% load crispy_forms_tags %}
-{% load static %}
+{% load crispy_forms_tags %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> Checkout | Vidit Enterprises</title>
-        <!-- <link rel="stylesheet" href="static/css/new.css"> -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Checkout | Vidit Enterprises</title>
+    <!-- <link rel="stylesheet" href="static/css/new.css"> -->
 
-        <!-- Font Awesome -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-        <!-- MDB -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet">
-        <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.structure.min.css' %}" rel="stylesheet">
-        <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.theme.min.css' %}" rel="stylesheet">
-       
+    <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.structure.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui-1.12.1/jquery-ui.theme.min.css' %}" rel="stylesheet">
 
-    </head>
 
-    <body>
+</head>
 
-        <!--Main Navigation-->
-        <header>
-            <img src="{% static '' %}" alt="My image">
-            <!-- Navbar -->
-            <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-                <!-- Container wrapper -->
-                <div class="container-fluid">
-                    <!-- Toggle button -->
-                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                        data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-                        aria-label="Toggle navigation">
+<body>
+
+    <!--Main Navigation-->
+    <header>
+        <img src="{% static '' %}" alt="My image">
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </button>
 
-                    <!-- Brand -->
-                    <a class="navbar-brand" href="/">
+                <!-- Brand -->
+                <a class="navbar-brand" href="/">
                         Vidit Enterprises
                     </a>
-                    <!-- Search form -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/about">About</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!-- Search form -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Inventory
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/products">Product</a>
-                                    <a class="dropdown-item" href="/items">Item</a>
-                                </div>
-                            </li>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/products">Product</a>
+                                <a class="dropdown-item" href="/items">Item</a>
+                            </div>
+                        </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Purchase
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/productCheckout">Product</a>
-                                    <a class="dropdown-item" href="#">Item</a>
-                                </div>
-                            </li>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/productCheckout">Product</a>
+                                <a class="dropdown-item" href="#">Item</a>
+                            </div>
+                        </li>
 
-                            <li class="nav-item dropdown active">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Checkout
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/add_productCheckout">Product</a>
-                                    <a class="dropdown-item" href="">Item</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <!-- Right links -->
-                    <ul class="navbar-nav ms-auto d-flex flex-row">
-
-                        <!-- Avatar -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
-                                id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="fas fa-user fa-fw me-3"></i><span></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/admin">My profile</a></li>
-                                <li><a class="dropdown-item" href="/login">Logout</a></li>
-                            </ul>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/add_productCheckout">Product</a>
+                                <a class="dropdown-item" href="">Item</a>
+                            </div>
                         </li>
+
                     </ul>
                 </div>
-                <!-- Container wrapper -->
-            </nav>
-            <!-- Navbar -->
-        </header>
-        <!--Main Navigation-->
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row">
 
-        <!--Main layout-->
-        <main style="margin-top: 58px">
-            <div class="container pt-4">
-                <div class="jumbotron">
-                    <form method="post" action="">
-                        {% csrf_token %}
-                        <h2>Add Items</h2> <br>
-                        {% comment %} {{form|crispy}} {% endcomment %}
-                        <form>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Invoice No.: {{form.invoice_number}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Costumer Name: {{form.name}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Phone no.: {{form.phone_number}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Address: {{form.address}}</label>
-                            </div>
-                            <br>
-
-
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Product 1: {{form.line_two}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Serial no.: {{form.line_two_serial}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">HSN no.: {{form.line_two_HSN}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label name="pro1_qty" for="exampleInputPassword1">Quantity: {{form.line_two_quantity}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label name="price1" for="exampleInputPassword1">Price: RS. {{form.line_two_unit_price}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Discount: {{form.line_two_discount}}%</label>
-                            </div>
-                            <div class="form-group" >
-                                <label for="exampleInputPassword1">Total Price: RS. {{form.line_two_total_price}}
-                                    </label>
-                            </div>
-                            <br><br>
-
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Product 2: {{form.line_three}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Serial no.: {{form.line_three_serial}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">HSN no.: {{form.line_three_HSN}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Quantity: {{form.line_three_quantity}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Price: RS. {{form.line_three_unit_price}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Discount: {{form.line_three_discount}}%</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Total Price: RS.
-                                    {{form.line_three_total_price}}</label>
-                            </div>
-                            <br><br>
-
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Product 3: {{form.line_four}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Serial no.: {{form.line_four_serial}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">HSN no.: {{form.line_four_HSN}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Quantity: {{form.line_four_quantity}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Price: RS. {{form.line_four_unit_price}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Discount: {{form.line_four_discount}}%</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Total Price: RS.
-                                    {{form.line_four_total_price}}</label>
-                            </div>
-                            <br><br>
-
-                            <div class="form-group">
-                                <label for="exampleInputPassword1"> Sub Total Price: RS. {{form.subtotal}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1"> Cgst: {{form.cgst}}%</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1"> RS. {{form.cgst_value}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1"> Sgst: {{form.sgst}}%</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1"> RS. {{form.sgst_value}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1"> Total Price: RS. {{form.total}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1"> Type of invoice: {{form.invoice_type}}</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1"> Date: {{form.invoice_date}}</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary" value="Save">Submit</button>
-                        </form>
-                    </form>
-                </div>
+                    <!-- Avatar -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user fa-fw me-3"></i><span></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/admin">My profile</a></li>
+                            <li><a class="dropdown-item" href="/login">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </main>
-        <!--Main layout-->
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main style="margin-top: 58px">
+        <div class="container pt-4">
+            <div class="jumbotron">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h2>Add Items</h2> <br> {% comment %} {{form|crispy}} {% endcomment %}
+                    <form>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Invoice No.: {{form.invoice_number}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Costumer Name: {{form.name}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Phone no.: {{form.phone_number}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Address: {{form.address}}</label>
+                        </div>
+                        <br>
 
 
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product 1: {{form.line_two}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Serial no.: {{form.line_two_serial}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">HSN no.: {{form.line_two_HSN}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label name="pro1_qty" for="exampleInputPassword1">Quantity: {{form.line_two_quantity}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label name="price1" for="exampleInputPassword1">Price: RS. {{form.line_two_unit_price}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Discount: {{form.line_two_discount}}%</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Total Price: RS. {{form.line_two_total_price}}
+                                    </label>
+                        </div>
+                        <br><br>
 
-        <!-- MDB -->
-        <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product 2: {{form.line_three}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Serial no.: {{form.line_three_serial}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">HSN no.: {{form.line_three_HSN}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Quantity: {{form.line_three_quantity}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Price: RS. {{form.line_three_unit_price}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Discount: {{form.line_three_discount}}%</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Total Price: RS.
+                                    {{form.line_three_total_price}}</label>
+                        </div>
+                        <br><br>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product 3: {{form.line_four}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Serial no.: {{form.line_four_serial}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">HSN no.: {{form.line_four_HSN}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Quantity: {{form.line_four_quantity}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Price: RS. {{form.line_four_unit_price}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Discount: {{form.line_four_discount}}%</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Total Price: RS.
+                                    {{form.line_four_total_price}}</label>
+                        </div>
+                        <br><br>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> Sub Total Price: RS. {{form.subtotal}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> Cgst: {{form.cgst}}%</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> RS. {{form.cgst_value}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> Sgst: {{form.sgst}}%</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> RS. {{form.sgst_value}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> Total Price: RS. {{form.total}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> Type of invoice: {{form.invoice_type}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> Date: {{form.invoice_date}}</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" value="Save">Submit</button>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!--Main layout-->
 
 
-        <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-        <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
-        <script src="{% static 'js/myjs.js' %}"></script>
-    </body>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
+
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/myjs.js' %}"></script>
+</body>
 
 </html>

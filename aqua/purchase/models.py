@@ -54,4 +54,8 @@ class Invoice(models.Model):
 	def __str__(self) -> str:
 		return self.invoice_number
 
+	# @property
+	# def do_calc(self):
+	# 	return 41
+
 	

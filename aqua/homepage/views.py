@@ -134,13 +134,22 @@ def productCheckout(request):
 def add_productCheckout(request):
     form = InvoiceForm(request.POST or None)
     if form.is_valid():
+        instance = form.save(commit=False)
+        # a = instance['line_two_unit_price']
+        print("_____________________________")
+        print("_____________________________")
+        # print(a)
+        print("_____________________________")
+        print("_____________________________")
+        instance.line_two_total_price = instance.line_two_unit_price - ((instance.line_two_unit_price)*instance.line_two_discount/100)
+        instance.save()
         form.save()
         return redirect('/productCheckout')
     context = {
         'form': form
         }
         
-    return render(request,'checkout/add_productCheckout.html', context)
+    return render(request,'checkout/add_prodCheck.html', context)
 
 def update_productInvoice(request, pk):
 	queryset = Invoice.objects.get(id=pk)
